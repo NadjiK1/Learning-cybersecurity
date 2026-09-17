@@ -12,3 +12,48 @@ small office/home office router
 a router is what routes or passes your internet connection to all your devices .
 fonction as a wireless point 
 Now u have Modem with a router 
+
+
+DNS:Domain name system
+Resolves names to numbers -> domains names to IP.adresses
+
+yahoo.com ,if you knew the IP.adress you could just type the domain name but too hard
+u tape yahoo.com it go to the dns then give u the ip adress to connect to the web
+STEPS:
+Computer -> type Yahoo.com if cant find with the computer cache its sends to the RESOLVER
+Resolver -> will check his own cache if not find send it to the root server
+ROOT SERVER -> (is the root of the DNS hierarchy) 13 sets of these root servers strategically
+placed around the world.
+Operated by 12 different organizations each set has their own ip adress.
+If not found send to TOP lvl Domain Server
+TLD -> store adress information such as .com .NET .org etc . 
+will direct to the AUTHORITATIVE NAME SERVER -> responsible for knowing everything about the domain,
+
+
+Firewall:s
+system designed to prevent unauthorized acces from entering a private network
+create a safety barrier between a private network and the public internet 
+important for large organisations to protect your private server  
+you have a access control list bunch of rules to acces or deny some trafic 
+filter with ip adress domains names protocols programs ports keyword
+
+hot based firewall -> installed on a computer protect only computer 
+
+network-based firewall -> combination of hardware & software 
+protect computer and server 
+
+HTTP: Hypertext transfer Protocol
+all information is sent in clear text -> Vulnerable to hacker intercept the data to have the information typed in.
+HTTPS:Secure HTPP
+Encrypts the data thais bieng retrieved by HTTP -> use encryption algorithm 
+SSL:secure sockets layer
+computer ask for ssl certificate ssl to the server than encrypted data transfer
+TLS:Transport layer security 
+Authenticates the server client than encrypt the data .
+
+SUBNET Mask:
+IP adress -> identifer for a computer on a network
+IPv4 32 bits adress written as 4 numbers as octects 
+TWo part Network adress, Host adress
+ A subnet mask reveals how many bits in the IP address are used for the network by masking
+the Network portion of the IP adress.
