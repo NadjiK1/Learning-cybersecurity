@@ -1,0 +1,70 @@
+Network Mapper (Nmap) open source network analysis and security auditing tool written in C, C++,Python and Lua
+-Scan network and identify wichc hosts are available on the network using raw packets.
+t can also identify the operating systems and versions of these hosts. Besides other features, Nmap also offers scanning capabilities that can determine if packet filters, firewalls
+, or intrusion detection systems (IDS) are configured as needed.
+
+Use Cases:
+Audit the security aspects of networks
+Simulate penetration tests
+Check firewall and IDS settings and configurations
+Types of possible connections
+Network mapping
+Response analysis
+Identify open ports
+Vulnerability assessment as well.
+Nmap Architecture::
+Host discovery
+Port scanning
+Service enumeration and detection
+OS detection
+Scriptable interaction with the target service (Nmap Scripting Engine)
+
+Syntax:
+Nadjo@htb[/htb]$ nmap <scan types> <options> <target>
+Scan Techniques:
+Nadjo@htb[/htb]$ nmap --help
+
+<SNIP>
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sU: UDP Scan
+  -sN/sF/sX: TCP Null, FIN, and Xmas scans
+  --scanflags <flags>: Customize TCP scan flags
+  -sI <zombie host[:probeport]>: Idle scan
+  -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+  -sO: IP protocol scan
+  -b <FTP relay host>: FTP bounce scan
+<SNIP>
+Exemple:
+TCPèSYN scan (-sS) one of the default settings unless we have define otherwise ++ most popular :
+The TCP-SYN scan sends one packet with the SYN flag,therefore,never completes the threeway handshake 
+The three Steps :
+Step 1:SYN(Synchronize)
+-le Client envoie un premier paquet SYN au serveur (Demande a ouvrir la discussion)
+-Contient un num de départ aléatoire (appelé numéro de séquence exemple A).
+Step 2 :SYN -ACK(Synchronize-Acknowledgment)
+-server receive the message and answer with a SYN-ACK paquage 
+-Accept send his random num de départ aléatoire 
+-confirme le message du client en renvoyant A+1
+Step 3: ACK(Acknowledgment):
+Le client reçoit la réponse du serveur.
+Il envoie un dernier accusé de réception ACK au serveur
+.Il confirme le numéro du serveur en ajoutant un (B + 1)
+.La connexion est alors ouverte et active
+So if sends a SYN-ACK flagged packet Nmap detects that the port is open
+-If respond with an RST flagged packet(Abrutly stop and tear down a TCP connection) port closed
+-if does not receive a packet back,it will display it as filtered.Depending on the firewall
+Exemple: scan 
+Nadjo@htb[/htb]$ sudo nmap -sS localhost
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-11 22:50 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000010s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+5432/tcp open  postgresql
+5901/tcp open  vnc-1
+
+Nmap done: 1 IP address (1 host up) scanned in 0.18 seconds
