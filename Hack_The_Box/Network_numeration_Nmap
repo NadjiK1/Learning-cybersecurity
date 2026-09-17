@@ -1,1 +1,12 @@
+Enumeration is the act to identifying all of the ways we could attack a target we must find.
+We need to know what to do with the information we get from them tools are just tools.
+It is essential to know how they work and what syntax they use 
+Two points:
+-Functions and/or resources that allow us to interact with the tharget and/or provide additional information.
+-Information that provides us with even more important information to acces our target.
+Most scanning tools use a timeout while waiting to receive a response from a service/port. 
+If this service/port does not respond within a specific amount of time, the tool will mark it as closed, filtered, or unknown.
+In the last two cases, we will still be able to work with it.
+However, if a port is marked as closed and Nmap doesn't show it to us, we will be in a bad situation.
+This service/port may provide us with an opportunity to find a way to access the system. Therefore, this can cost us a lot of unnecessary time before we find it.
 
