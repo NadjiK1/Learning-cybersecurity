@@ -1,0 +1,25 @@
+Host Discovery:
+we need to conduct an internal penetration tests for the entire network of a company,
+for example,we need to see first wich systems are online that we can work with.
+To discover such systemes on the network we can use various Nmap host discovery options.
+One of the effective method is to use ICMP echo request
+Recommended to store every single scan.
+used for comparison and documentation, and reporting different tools may produce different results.
+
+
+SCAN NETWORK RANGE:(show us all the ip adress to find out all the device connected and actifs)
+Nadjo@htb[/htb]$ sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5
+
+10.129.2.4
+10.129.2.10
+10.129.2.11
+10.129.2.18
+10.129.2.19
+10.129.2.20
+10.129.2.28
+
+10.129.2.0/24	Target network range.
+-sn	Disables port scanning.
+-oA tnet	Stores the results in all formats starting with the name 'tnet'.
+this scanning method works only if the firewalls of the hosts allow it .
+Otherwise,we can use other scanning techniques to find out if the hosts are active or not.
