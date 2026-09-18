@@ -1,0 +1,8 @@
+We are using burp to see in details whats going on we can see that we have 
+product id that definitly talk to the backend.
+we check the stock that definitly talk to the backend POST request and have xml input
+if we use a common sequel query UNION SECLECT NULL we see an "attack detected" we can see that there is a firewall
+we use an extension hackvertor to encode it. it doesnt detect it,
+so we try to output the content the output of two column (username and password) it doesnt work we need 
+to cancatenate it some way 
+1 UNION SECLECT username ||'-'|| password FROM users
