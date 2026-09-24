@@ -1,0 +1,6 @@
+We are using vulnerability allowing login bypass so when we conect to our account 
+its send a sql commande 
+SELECT firstname FROM users WHERE username 'admin' AND password = 'admin'
+we can change the username and password 
+SELECT firstname FROM users WHERE username 'administrator'--' AND password ='ahudva'
+we dont care  after '--' because '--' make whats after disappear 
