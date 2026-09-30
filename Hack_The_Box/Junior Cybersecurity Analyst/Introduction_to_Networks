@@ -43,3 +43,71 @@ Common protocols operating at this layer include HTTP (Hypertext Transfer Protoc
 FTP (File Transfer Protocol) for file transfers, SMTP (Simple Mail Transfer Protocol) for email transmission, 
 and DNS (Domain Name System) for resolving domain names to IP addresses.
 This layer serves as the interface between the network and the application software.
+
+TCP/IP Model:
+The Transmission Control Protocol/Internet Protocol (TCP/IP) model is a condensed version of the OSI model, tailored
+for practical implementation on the internet and other networks. Below we see the four layers of the TCP/IP Model.
+
+Link Layer :
+responsable for handling the physical aspects. Includes technologies such as Ethernet for wired connections and Wifi.
+<=> physical layer and the data link layers in the OSI model
+
+Internet Layer
+The Internet Layer manages the logical addressing of devices and the routing of packets across networks.
+Protocols like IP (Internet Protocol) and ICMP (Internet Control Message Protocol) operate at this layer, 
+ensuring that data reaches its intended destination by determining logical paths for packet transmission.
+This layer corresponds to the Network Layer in the OSI model.
+
+Transport Layer
+At the Transport Layer, 
+the TCP/IP model provides end-to-end communication services that are essential for the functioning of the internet. 
+This includes the use of TCP (Transmission Control Protocol) for reliable communication and
+UDP (User Datagram Protocol) for faster,connectionless services. 
+<=> Transport layer of the OSI model
+
+Application Layer
+The Application Layer of the TCP/IP model contains protocols that offer specific data communication services to
+applications. Protocols such as HTTP (Hypertext Transfer Protocol), FTP (File Transfer Protocol),
+and SMTP (Simple Mail Transfer Protocol) enable functionalities like web browsing, file transfers, and email services.
+<=>(Session,Presentation,Application).
+
+Protocol	Description
+HTTP (Hypertext Transfer Protocol)	Primarily used for transferring web pages. 
+It operates at the Application Layer, allowing browsers and servers to communicate in the delivery of web content.
+
+FTP (File Transfer Protocol)	Facilitates the transfer of files between systems, 
+also functioning at the Application Layer. It provides a way for users to upload or download files to and from servers.
+
+SMTP (Simple Mail Transfer Protocol)	Handles the transmission of email. Operating at the Application Layer,
+it is responsible for sending messages from one server to another, ensuring they reach their intended recipients.
+
+TCP (Transmission Control Protocol)	Ensures reliable data transmission through error checking and recovery, 
+operating at the Transport Layer.
+It establishes a connection between sender and receiver to guarantee the delivery of data in the correct order.
+
+UDP (User Datagram Protocol)	Allows for fast, connectionless communication, which operates without error recovery.
+This makes it ideal for applications that require speed over reliability, 
+such as streaming services. UDP operates at the Transport Layer.
+IP (Internet Protocol)	Crucial for routing packets across network boundaries,
+functioning at the Internet Layer.
+It handles the addressing and routing of packets to ensure they travel from the 
+source to the destination across diverse networks.
+
+Transmission:
+in networking  refers to the process of sending data signals over a medium from one device to another:*
+Transmission types :
+analog and digital
+analog -> uses continuous signals to represent information commonly seen in traditional radio
+digital -> employ discrete data (bits) to encode data, 
+Transmission modes:(how data is send)
+Simplex -> allows one way communication only such as from keyboard to a computer
+Half-Duplex -> two-way communication but not simultaneously; (ex walkies-talkies take turn to speak)
+Full-Duplex -> simultaneously 
+Transmission Media:
+physical means by wich data is transmitted
+twisted pair - cables,ethernet 
+coaxial - cables used for tv and early ethernet 
+fiber optic 
+radio waves -> wifi and cellular networks 
+Microwaves ->  sattellite communications 
+infrared -> short range remote 
