@@ -111,3 +111,422 @@ fiber optic
 radio waves -> wifi and cellular networks 
 Microwaves ->  sattellite communications 
 infrared -> short range remote 
+
+Components of a network :
+A Network Interface Card (NIC) is a hardware component installed in a computer,
+or other device, that enables connection to a network.
+
+Each NIC has a unique Media Access Control (MAC) address, which is essential for devices to identify each other, 
+and facilitate communication at the data link layer.
+
+Network Communication:
+For a network to function and facilitate communication properly, there are three crucial components:
+MAC addresses, IP addresses, and ports.
+
+MAC address :
+Media Access Control (MAC) address is a unique identifier assigned to the network interface card (NIC) of a device,
+allowing it to be recognized on a local network.Operating at the Data link layer of the OSI model.
+MAC address is 48 bits long and is typically represented in hexadecimal format,00:1A:2B:3C:4D:5E
+the first 24 bits represent the Organizationally Unique Identifier (OUI) assigned to the manufacturer while the 
+remaining 24 bits are the individual device (getmac give us the mac adress)
+
+Ip address:
+Internet Protocol 
+Functioning at the Network Layer (Layer 3) of the OSI model,
+IP addresses enable devices to locate and communicate with each other across various networks.
+Two type IPv4 (32 bits) and IPv6 (128 bits)
+
+Routers use IP addresses to determine the optimal path for data to reach 
+its intended destination across interconnected networks.
+
+Ports
+A port is a number assigned to specific processes or services
+on a network to help computers sort and direct network traffic correctly.
+It functions at the Transport Layer (Layer 4) of the OSI model and works with protocols such as TCP and UDP.
+
+DHCP (Dynamic Host Configuration Protocol):
+DHCP is a network management protocol used to automate the process of configuring devices on IP networks. 
+It allows devices to automatically receive an IP address and other network configuration parameters,
+such as subnet mask, default gateway, and DNS servers, without manual intervention.
+
+DHCP Server	A network device (like a router or dedicated server) that manages IP address allocation.
+It maintains a pool of available IP addresses and configuration parameters.
+
+DHCP Client	Any device that connects to the network and requests network configuration parameters from the DHCP server.
+
+Below, we break down each step of the DORA process:
+
+Step	Description
+1. Discover	When a device connects to the network, 
+it broadcasts a DHCP Discover message to find available DHCP servers.
+
+2. Offer	DHCP servers on the network receive the discover message and respond with a DHCP Offer message,
+proposing an IP address lease to the client.
+
+3. Request	The client receives the offer and replies with a DHCP Request message,
+indicating that it accepts the offered IP address.
+
+4. Acknowledge	The DHCP server sends a DHCP Acknowledge message,
+confirming that the client has been assigned the IP address.
+The client can now use the IP address to communicate on the network.
+
+Network Address Translation (NAT):
+Pv4, offers a finite number of IP addresses (approximately 4.3 billion). Although this might sound like a lot,
+the explosive growth of the internet has meant these addresses are in short supply.
+One solution to this insufficiency issue is Network Address Translation (NAT).
+The idea is that NAT allows multiple devices on a private network to share a single public IP address.
+
+Public IP: 
+addresses are globally unique identifiers assigned by Internet Service Providers (ISPs)
+Devices equipped with these IP addresse can be accessed from anywhere on the internet.
+ex 8.8.8.8 is used for google DNS server and 142.251.46.174 identifies one of Google’s web servers
+
+Private IP:
+Private IP addresses are designated for use within local networks such as homes, 
+schools, and offices. These addresses are not routable on the global internet
+Defined by RFC 1918, common IPv4 private address ranges include 10.0.0.0 to 10.255.255.255,
+172.16.0.0 to 172.31.255.255, and 192.168.0.0 to 192.168.255.255. 
+
+How Nat work :
+Network Address Translation (NAT) is a process carried out by a router or a similar device that modifies the source or
+destination IP address in the headers of IP packets as they pass through. This modification is used to translate 
+the private IP addresses of devices within a local network to a single public IP address that is assigned to the router.
+
+if we consider a home network with several devices The home router managing this network has two critical interfaces.
+The LAN (Local Area Network) interface connects to the private network with an IP address of 192.168.1.1, 
+while the WAN (Wide Area Network) interface,
+connected to the ISP’s network, carries a public IP address, 203.0.113.50.
+
+Static NAT	Involves a one-to-one mapping, where each private IP address corresponds directly to a public IP address.
+
+Dynamic NAT	Assigns a public IP from a pool of available addresses to a private IP as needed, based on network demand.
+
+Port Address Translation (PAT)	Also known as NAT Overload, is the most common form of NAT in home networks.
+Multiple private IP addresses share a single public IP address,differentiating connections by using unique port numbers.
+This method is widely used in home and small office networks, 
+allowing multiple devices to share a single public IP address for internet access.
+
+Benefits
+Conserves the limited IPv4 address space.
+Provides a basic layer of security by not exposing internal network structure directly.
+Flexible for internal IP addressing schemes.
+Trade-Offs
+Complex services like hosting a public server behind NAT can require additional configuration (e.g., port forwarding).
+NAT can break certain protocols that rely on end-to-end connectivity without special handling.
+Adds complexity to troubleshooting connectivity issues.
+
+Domain Name System (DNS):
+is like the phonebook of the internet 
+Domain Name	A readable address like www.example.com that people can easily remember.
+IP Address	A numerical label (e.g., 93.184.216.34
+
+Root Servers	The top of the DNS hierarchy.
+Top-Level Domains (TLDs)	Such as .com, .org, .net, or country codes like .uk, .de.
+Second-Level Domains	For example, example in example.com.
+Subdomains or Hostname	For instance, www in www.example.com, or accounts in accounts.google.com.
+
+Step 1	We type www.example.com into our browser.
+Step 2	Our computer checks its local DNS cache (a small storage area) to see if it already knows the IP address.
+Step 3	If not found locally, it queries a recursive DNS server. This is often provided by our Internet Service Provider or a third-party DNS service like Google DNS.
+Step 4	The recursive DNS server contacts a root server, which points it to the appropriate TLD name server (such as the .com domains, for instance).
+Step 5	The TLD name server directs the query to the authoritative name server for example.com.
+Step 6	The authoritative name server responds with the IP address for www.example.com.
+Step 7	The recursive server returns this IP address to your computer, which can then connect to the website’s server directly.
+
+
+Internet Architecture:
+describes how data is organized, transmitted, and managed across networks
+
+Peer to peer (P2P) network, each node wether it's a computer or other devices acts as a client and server.
+This allows nodes to communicate directly with each other sharing files,processing powers or bandwidth,without the need 
+for a central server 
+
+Advantage	Description
+Scalability	Adding more nodes can increase total resources (storage, CPU, etc.).
+Resilience	If one node goes offline, others can continue functioning.
+Cost distribution	Resource burden, like bandwidth and storage, is distributed among peers, making it more cost-efficient.
+Disadvantage	Description
+Management complexity	Harder to control and manage updates/security policies across all nodes
+Potential reliability issues	If too many peers leave, resources could be unavailable.
+Security challenges	Each node is exposed to potential vulnerabilities.
+
+Client-Server Architecture:
+client witch are users devices send requests , such as a web browser asking for a webpage and server responds 
+Single-Tier Architecture :
+the client, server, and database all reside on the same machine. 
+is rarely used for large-scale applications due to significant limitations in scalability and security.
+
+Two-tier Architecture:
+plits the application environment into a client and a server.
+The client handles the presentation layer, and the server manages the data layer. 
+ This model is typically seen in desktop applications where the user interface is on the user's machine
+, and the database is on a server.
+
+Three-Tier Architecture:
+architecture introduces an additional layer between the client and the database server, known as the application server.
+In this model, the client manages the presentation layer, the application server handles all the business logic 
+and processing, and the third tier is a database server. This separation provides
+added flexibility and scalability because each layer can be developed and maintained independently
+
+Centralized control	Easier to manage and update.
+Security	Central security policies can be applied.
+Performance	Dedicated servers can be optimized for their tasks.
+Disadvantage	Description
+
+Single point of failure	If the central server goes down, clients lose access.
+
+High Cost and Maintenance	Setting up and sustaining a client-server architecture is expensive, 
+requiring constant operation and expert management ,making it costly to maintain.
+
+Network Congestion	High traffic on the network can lead to congestion, 
+slowing down or even disrupting connections when too many clients access the server simultaneously.
+
+Hybrid architecture:
+both Client-Server and Peer-to-Peer (P2P) architectures.
+central servers are used to facilitate coordination and authentication tasks,
+while the actual data transfer occurs directly between peers. 
+
+Efficiency	Relieves workload from servers by letting peers share data.
+Control	Central server can still manage user authentication, directory services, or indexing.
+
+Disadvantage	Description
+
+Complex Implementation	Requires more sophisticated design to handle both centralized and distributed components.
+Potential Single Point of Failure	If the central coordinating server fails, peer discovery might stop.
+
+Cloud Architecture
+refers to computing infrastructure that is hosted and managed by third-party providers,
+such as AWS, Azure, and Google Cloud.
+
+Characteristic	Description
+1. On-demand self-service	Automatically set up and manage the services without human help.
+2. Broad network access	Access services from any internet-connected device.
+3. Resource pooling	Share and allocate service resources dynamically among multiple users.
+4. Rapid elasticity	Quickly scale services up or down based on demand.
+5. Measured service	Only pay for the resources you use, tracked with precision.
+
+Advantage	Description
+Scalability	Easily add or remove computing resources as needed.
+Reduced cost & maintenance	Hardware managed by the cloud provider.
+Flexibility	Access services from anywhere with Internet connectivity.
+
+Disadvantage	Description
+Vendor lock-in	Migrating from one cloud provider to another can be complex.
+Security/Compliance	Relying on a third party for data hosting can introduce concerns about data privacy.
+Connectivity	Requires stable Internet access.
+
+Software-Defined Architecture (SDN):
+is a modern networking approach that separates the control plane, which makes decisions about where traffic is sent,
+
+
+Advantage	Description
+Centralized control	Simplifies network management.
+Programmability & Automation	Network configurations can be changed quickly through software instead of manually configuring each device.
+Scalability & Efficiency	Can optimize traffic flows dynamically, leading to better resource utilization.
+
+Disadvantage	Description
+Controller Vulnerability	If the central controller goes down, the network might be adversely affected.
+Complex Implementation	Requires new skill sets and specialized software/hardware.
+
+Wireless Networks:
+a sophisticated communication system that employs radio waves or other wireless signals to connect various devices 
+such as computers smartphones, and IoT gadgets, enabling them to communicate and exchange data without the need for physical cables.
+
+Advantages	Description
+Mobility	Users can move around freely within the coverage area.
+Ease of installation	No need for extensive cabling.
+Scalability	Adding new devices is simpler than a wired network.
+
+Disadvantages	Description
+Interference	Wireless signals can be disrupted by walls, other electronics, or atmospheric conditions.
+Security risks	Without proper security measures, wireless transmissions can be easier to intercept.
+
+Wireless Router
+A router is a device that forwards data packets between computer networks. In a home or small office setting, a wireless router combines the functions of:
+
+Function	Description
+Routing	Directing data to the correct destination (within your network or on the internet).
+Wireless Access Point	Providing Wi-Fi coverage.
+Speed limitations	Generally, wireless connections are slower compared to wired connections of the same generation.
+
+Component	              Description
+WAN (Wide Area Network) Port	Connects to your internet source (e.g., a cable modem).
+LAN (Local Area Network) Ports	For wired connections to local devices (e.g., desktop computer, printer).
+Antennae	                Transmit and receive wireless signals. (Some routers have internal antennae.)
+Processor & Memory	      Handle routing and network management tasks.
+
+Mobile Hotspot
+A mobile hotspot allows a smartphone (or other hotspot devices) to share its cellular data connection via Wi-Fi
+
+Cell Tower
+A cell tower (or cell site) is a structure where antennas and electronic communications equipment 
+are placed to create a cellular network cell.
+
+Frequency Bands
+1. 2.4 GHz (Gigahertz) – Used by older Wi-Fi standards (802.11b/g/n). Better at penetrating walls,
+but can be more prone to interference (e.g., microwaves, Bluetooth).
+
+2. 5 GHz – Used by newer Wi-Fi standards (802.11a/n/ac/ax). Faster speeds, but shorter range.
+
+3. Cellular Bands – For 4G (LTE) and 5G. These range from lower frequencies (700 MHz) to mid-range (2.6 GHz) 
+and even higher frequencies for some 5G services (up to 28 GHz and beyond).
+
+Network Security : 
+In networking, the term security refers to the measures taken to protect data
+The goal is to uphold and maintain the CIA triad:
+
+Principle	      Description
+Confidentiality	Only authorized users can view the data.
+Integrity	      The data remains accurate and unaltered.
+Availability	   Network resources are accessible when needed.
+
+FireWalls:
+A network security device either hardware or software or both.Monitors the incoming and outgoing trafic 
+Firewalls enforce a set of rules (known as firewall policies or access control lists) to determine whether 
+to allow or block specific traffic.
+
+Description
+Operates at Layer 3 (Network) and Layer 4 (Transport) of the OSI model.
+Examines source/destination IP, source/destination port, and protocol type.
+Example: A simple router ACL that only allows HTTP (port 80) and HTTPS (port 443) while blocking other ports.
+
+Stateful Inspection Firewall
+Description
+Tracks the state of network connections.
+More intelligent than packet filters because they understand the entire conversation.
+Example: Only allows inbound data that matches an already established outbound request.
+
+Application Layer Firewall (Proxy Firewall)
+Description
+Operates up to Layer 7 (Application) of the OSI model.
+Can inspect the actual content of traffic (e.g., HTTP requests) and block malicious requests.
+Example: A web proxy that filters out malicious HTTP requests containing suspicious patterns.
+
+Next-Generation Firewall (NGFW)
+Description
+Combines stateful inspection with advanced features like deep packet inspection, intrusion detection/prevention, 
+and application control.
+Example: A modern firewall that can block known malicious IP addresses, inspect encrypted traffic for threats,
+and enforce application-specific policies.
+
+Intrusion Detection and Prevention Systems (IDS/IPS)
+security solutions designed to monitor and respond to suspicious network or system activityù
+Detection System (IDS) observes traffic or system events to identify malicious behavior or policy violations,
+generating alerts but not blocking the suspicious traffic. In contrast, an Intrusion Prevention System (IPS)
+operates similarly to an IDS but takes an additional step by preventing or rejecting malicious traffic in real time
+
+Both IDS and IPS solutions analyze network packets and compare them to known attack signatures or typical traffic patterns. 
+This process involves:
+Techniques	Description
+Signature-based detection	Matches traffic against a database of known exploits.
+Anomaly-based detection	Detects anything unusual compared to normal activity.
+
+
+1. Network-Based IDS/IPS (NIDS/NIPS)
+Description
+Hardware device or software solution placed at strategic points in the network to inspect all passing traffic.
+Example: A sensor connected to the core switch that monitors traffic within a data center.
+2. Host-Based IDS/IPS (HIDS/HIPS)
+Description
+Runs on individual hosts or devices, monitoring inbound/outbound traffic and system logs for suspicious behavior on that specific machine.
+Example: An antivirus or endpoint security agent installed on a server.
+
+Best Practices
+Here are the best practices for enhancing network security, summarized in the following table:
+
+Practice	        Description
+Define           Clear Policies	Consistent firewall rules based on the principle of least privilege (only allow what is necessary).
+Regular Updates 	Keep firewall, IDS/IPS signatures, and operating systems up to date to defend against the latest threats.
+Monitor and Log Events	Regularly review firewall logs, IDS/IPS alerts, and system logs to identify suspicious patterns early.
+Layered Security	Use defense in depth (a strategy that leverages multiple security measures to slow down an attack) with multiple layers: 
+                 Firewalls, IDS/IPS, antivirus, and endpoint protection to cover different attack vectors.
+Periodic Penetration Testing	 Test the effectiveness of the security policies and devices by simulating real attacks.
+
+Data flow exemple 
+1/ accesing the internet:
+Steps
+The laptop first identifies the correct wireless network/SSID
+If the network uses WPA2/WPA3, the user must provide the correct password or credentials to authenticate.
+Finally, the connection is established, and the DHCP protocol takes over the IP configuration.
+2/2. Checking Local Network Configuration (DHCP)
+IP Address Assignment	If the laptop does not already have an IP, it requests one from the home router's DHCP server.
+This IP address is only valid within the local network.
+DHCP Acknowledgement	The DHCP server assigns a private IP address (for example, 192.168.1.10) to the laptop, 
+along with other configuration details such as subnet mask,
+default gateway, and DNS server.
+
+3/ DNS resolution:
+Steps	Description
+DNS Query	The laptop sends a DNS query to the DNS server, 
+which is typically an external DNS server provided by the ISP or a third-party service like Google DNS.
+DNS Response	The DNS server looks up the domain www.example.com and returns its IP address (e.g., 93.184.216.34).
+
+4/Data Encapsulation and Local Network Transmission
+Steps	Description
+Application Layer	The browser creates an HTTP (or HTTPS) request for the webpage.
+
+Transport Layer	The request is wrapped in a TCP segment (or UDP, but for web traffic it's typically TCP).
+This segment includes source and destination ports (HTTP default port 80, HTTPS default port 443).
+
+Internet Layer	The TCP segment is placed into an IP packet. The source IP is the laptop's private IP
+(e.g., 192.168.1.10), and the destination IP is the remote server’s IP (93.184.216.34).
+
+Link Layer	The IP packet is finally placed into an Ethernet frame (if we're on Ethernet) or Wi-Fi frame. Here, the MAC (Media Access Control) addresses are included (source MAC is the laptop's network interface, 
+and destination MAC is the router's interface).
+
+5/Network Address Translation(NAT):
+router receives the frame, it processes the IP packet
+the router replaces the private IP (192.168.1.10) with its public IP address (e.g., 203.0.113.45) in the packet header. 
+This process is known as Network Address Translation (NAT)
+router forwards the packet to the ISP's network, and from there,
+it travels across the internet to the destination IP (93.184.216.34). 
+
+6/ Server Receives the Request and Responds:
+Upon reaching the destination network, the server's firewall,
+if there is one, checks if the incoming traffic on port 80 (HTTP) or 443 (HTTPS) is allowed. If it passes firewall rules,
+it goes to the server hosting www.example.com.
+the web server software (e.g., Apache, Nginx, IIS) receives and processes the request,
+prepares the webpage (HTML, CSS, images, etc.), and sends it back as a response
+
+7/ Decapsulation and Display:
+Finally, our laptop receives the response and strips away the Ethernet/Wi-Fi frame,
+the IP header, and the TCP header, until the application layer data is extracted. 
+The laptop's browser reads the HTML/CSS/JavaScript, and ultimately displays the webpage.
+
+
+Skill assesment:
+Chapter 1 - Keep me in the loop:
+ifconfig tool is used to configure network interfaces and display their current status.
+ifconfig -a shows even interfaces that are down:
+3 interfaces ens3,lo,tun0
+lo interface -> known as the lookback address 
+associated to the IPv4 address 127.0.0.1. It's the IP address used when a device needs to send network data to itself.
+
+The netstat utility displays network connections, routing tables, 
+netstat -tulnp4
+it lists all open or listening TCP and UDP ports for IPv4 in the format "IP:PORT".
+netstat -tulp4
+When we remove the -n option, the output will be displayed as "hostname:service" rather than "IP:PORT". 
+it is worthwhile to note that a service listening on 0.0.0.0 is listening on all interfaces.
+
+Port forwarding is a technique that allows traffic sent to one TCP/UDP port to be redirected to another—even across different machines.
+This also another way the loopback address can be utilized.
+
+Chapter 2:
+ip route get <target ip>
+
+This command will display the route taken for any traffic sent from the Pwnbox to reach the target.
+Our theory has been confirmed—all traffic to the target is routed through tun0
+Let's begin our first interaction with the target machine. We typically always begin by using ping. 
+The ping is a networking utility used to test the reachability of a host on a network. 
+ping -c 4 <target ip>
+Here, we are sending four pings towards our target. Note that in Linux, if we do not specify the ping count,
+it will send pings indefinitely until we press Ctrl + C into the terminal.
+We've now confirmed that the target is reachable from our attack host. 
+A few things to take note of are the ttl and the time.
+The ttl ,which stands for time-to-live, tells us how many "hops" our packets are allowed to take in order to reach the target. 
+nmap <target IP>
+After a few moments, we will see nmap return the open TCP ports present on the target.
+Ports 135,139,and 445 will typically always be open on a Windows-based host. 
+Port 3389 is the port used for Remote Desktop Protocol, or RDP for short. It is another common service seen on Windows machines
+Port 5357 is used for Microsoft's Web Services for Devices API
