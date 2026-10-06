@@ -1,0 +1,133 @@
+Linux Structure:
+1. Introduction to Linux
+Definition: Linux is a free, open-source operating system (OS) that manages hardware resources and facilitates communication between software and hardware.
+
+Applications: It runs on personal computers, servers, embedded systems, and mobile devices (the Android OS is built on the Linux kernel, 
+making Linux the most widely installed OS).
+
+Distributions ("Distros"): Linux comes in over 600 versions tailored to various needs (e.g., Ubuntu, Debian, Fedora, and Parrot OS, 
+a Debian-based security distribution used via HTB's Pwnbox).
+
+Characteristics: It is known for high stability, performance, security, and lower susceptibility to malware compared to Windows, though it has a steeper learning curve for beginners.
+
+2. Linux Philosophy
+Linux focuses on simplicity, modularity, and openness, structured around five core principles:
+Everything is a file: Hardware devices, processes, and network connections are treated as files and accessed using standard tools.
+Small, single-purpose programs: Tools are built to do one task well.
+Chaining programs: Programs can be combined to perform complex operations and data filtering.
+Avoid captive user interfaces: Heavy reliance on the shell (terminal) for maximum control.
+Configuration data in text files: System settings (e.g., users in /etc/passwd) are stored as readable text.
+
+3. Core Components
+Bootloader: Guides the system startup process (e.g., GRUB in Parrot Linux).
+
+OS Kernel: The central component that manages hardware and I/O device resources at the hardware level.
+
+Daemons: Background services that handle tasks like scheduling and printing after boot.
+
+OS Shell: The command-line interface (CLI) interpreter (e.g., Bash, Zsh, Fish).
+
+Graphics Server & Window Manager: Provide the GUI environment (e.g., X-server, GNOME, KDE) for desktop interactions.
+
+Utilities: Programs that perform specific user or system functions.
+
+4. Linux Architecture (Layers)
+Hardware: Physical devices (RAM, CPU, hard drives).
+
+Kernel: Virtualizes and controls hardware resources, assigning virtual resources to processes and mitigating conflicts.
+
+Shell: CLI layer where users enter commands to execute kernel functions.
+
+System Utility: Makes all operating system functionalities available to the user.
+
+5. Filesystem Hierarchy Standard (FHS)
+Linux uses a tree-like directory structure originating from the root directory (/):
+
+/ (Root): Top-level directory containing all files needed to boot and mount other filesystems.
+
+/bin & /sbin: Essential command binaries and system administration binaries.
+
+/boot: Static bootloader and kernel files.
+
+/dev: Hardware device files.
+
+/etc: Local system and application configuration files.
+
+/home & /root: User home directories and the root user's home directory.
+
+/lib: Shared system library files.
+
+/media & /mnt: Removable media and temporary mount points.
+
+1. Overview of Linux Distributions (Distros)
+Definition: Distros are distinct operating systems built on top of the Linux kernel. They share the same core components,
+architecture, and philosophy, but differ in their package managers, pre-installed tools, user interfaces, and target use cases.
+
+Use Cases: Used across servers, mobile devices, embedded systems, cloud computing, and desktops.
+
+Why Cybersecurity Pros Prefer Linux: It is open-source (allowing source code inspection, security auditing, and deep customization).
+
+2. Popular Linux Distributions
+General / Desktop / Enterprise:
+
+Ubuntu & Fedora: Very popular for desktop users and beginners.
+
+Debian: Widely known for stability, reliability, and long-term support (up to 5 years), making it a top choice for servers and embedded systems.
+
+Red Hat Enterprise Linux (RHEL) & CentOS: Commonly used for enterprise-level computing.
+
+Security & Penetration Testing:
+
+Parrot OS: Debian-based security distribution used via HTB's Pwnbox.
+
+Kali Linux: The most popular distribution for cybersecurity specialists, packed with pre-installed security and penetration testing tools.
+
+Others: BackBox, BlackArch, Pentoo, and Raspberry Pi OS.
+
+3. Deep Dive: Debian
+Package Management: Uses the APT (Advanced Package Tool) system to handle software updates and security patches manually or automatically.
+
+Characteristics:
+
+Known for extreme stability, reliability, and long-term support (ideal for 24/7 servers).
+
+Strong commitment to security, privacy, and a well-established security track record.
+
+Can have a steeper learning curve and a more complex setup, but grants advanced users exceptional control and flexibility over the system.
+
+/opt: Third-party optional files.
+
+/tmp: Temporary files cleared on reboot.
+
+/usr: User applications, libraries, and manuals.
+
+1. Introduction to the Shell
+Why it matters: Linux servers (especially web servers) are heavily used because they are generally more stable and less error-prone than Windows servers. 
+Mastering the shell is essential to controlling them effectively.
+
+Definition: A Linux terminal, shell, or command line provides a text-based input/output (I/O) interface between users and the kernel.
+It acts like a text-based GUI with vastly superior capabilities for navigating directories, managing files, and gathering system information.
+
+Console vs. Terminal: A console refers to a physical or full-screen text-mode display, whereas a terminal (or terminal window) runs within a graphical environment.
+
+2. Analogy: How It Works Together
+To understand the relationship between the components:
+
+The Shell is like the company's main server room that processes all commands and data.
+
+The Terminal is like a receptionist's desk where you drop off your requests for the server room.
+
+Terminal Emulation Software is like a virtual receptionist desk on your GUI screen, letting you interact with the server remotely.
+
+CLI / Multiplexers (e.g., Tmux): Running multiple terminal windows or split screens is like having multiple virtual receptionist desks open simultaneously,
+letting you handle several tasks independently.
+
+3. Types of Shells
+BASH (Bourne-Again Shell): The most commonly used default shell in Linux (part of the GNU project). Everything you can do via a GUI,
+you can do faster and with more automation capabilities through Bash scripts.
+
+Other Shells: Include Tcsh/Csh, Ksh, Zsh, and Fish.
+
+/var: Variable data files like logs, email boxes, and web-related files
+
+
