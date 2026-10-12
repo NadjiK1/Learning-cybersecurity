@@ -130,4 +130,38 @@ Other Shells: Include Tcsh/Csh, Ksh, Zsh, and Fish.
 
 /var: Variable data files like logs, email boxes, and web-related files
 
+1. Essential Commands
+Command	Purpose
+whoami	Shows the current user.
+id	Shows user IDs and group memberships.
+hostname	Displays the machine name.
+uname -a	Shows system information.
+uname -r	Shows the kernel version.
+pwd	Shows the current directory.
+ip	Displays network interfaces.
+ss	Shows network connections.
+ps	Lists running processes.
+env	Displays environment variables.
+lsblk	Lists storage devices.
+lsof	Lists open files.
+2. Connecting via SSH
+SSH allows secure remote access to a Linux machine.
+ssh htb-student@IP_ADDRESS
+
+
+3. Getting Help
+command --help
+man command
+
+
+These commands explain how to use Linux tools.
+4. Why Is This Important?
+These commands help you identify users, permissions, kernel versions, network connections, and potential security vulnerabilities.
+5. HTB Exercise Commands
+Question	Command
+Home directory and shell	getent passwd htb-student
+Kernel release	uname -r
+Network interface with MTU 1500	ip link show
+Tip: Start the target machine and run these commands to find the exact answers.
+
 
